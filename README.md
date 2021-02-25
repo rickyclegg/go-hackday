@@ -8,3 +8,6 @@
 
 ## Data
 * Lets try and load some JSON.
+* Loaded some with `os.Open()`
+* Chris helped my decode that with `json.NewDecoder().Decode()`
+* 
