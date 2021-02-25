@@ -11,3 +11,6 @@
 * Loaded some with `os.Open()`
 * Chris helped my decode that with `json.NewDecoder().Decode()`
 * Tried to make a reusable function. I thought about generics, but they do not exist. Dave says I need to not be so generic.
+
+## Web server
+* Create a get request

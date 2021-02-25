@@ -1,25 +1,26 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
 	"os"
 )
 
 func main() {
-	devs := loadStringCollection("optimus-prime.json")
-
-	for _, dev := range devs {
-		fmt.Println("Dev: " + dev)
-	}
+	handleRequests()
 }
 
-func loadStringCollection(path string) (data []string) {
-	jsonFile, _ := os.Open(path)
+func handleRequests() {
+	http.HandleFunc("/api/devs", getDevs)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
 
-	defer jsonFile.Close()
+func getDevs(w http.ResponseWriter, r *http.Request) {
+	file, _ := os.Open("optimus-prime.json")
+	dto, _ := ioutil.ReadAll(file)
 
-	json.NewDecoder(jsonFile).Decode(&data)
-
-	return data
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(dto)
 }
