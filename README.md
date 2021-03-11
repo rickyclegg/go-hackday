@@ -22,3 +22,16 @@
 * Create a Dockerfile
 * Had issues with docker no recreated my image. Make sure the `CMD` is `./` to my executable.
 * Create `build.sh`
+
+## AWS
+* Create an account! That was pretty easy but needed a credit card.
+* Created an alert for spending as I once spend £700 for 4 days on Azure _(they refunded don't panic)_.
+* I installed the AWS CLI again.
+* Login to ECR to deploy my image
+* Create a Cluster
+* Create a Task
+* Run Task
+* Update VPC
+
+## Access
+Go Hackday [Visit](http://ec2-54-155-236-221.eu-west-1.compute.amazonaws.com/api/devs)
