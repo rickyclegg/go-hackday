@@ -1,25 +1,32 @@
 package main
 
 import (
-	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 )
 
 func main() {
-	handleRequests()
-}
+	file, err := os.Open("optimus-prime.json")
 
-func handleRequests() {
-	http.HandleFunc("/api/devs", GetDevs)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	devs, err := ioutil.ReadAll(file)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	http.HandleFunc("/api/devs", GetDevs(devs))
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func GetDevs(w http.ResponseWriter, _ *http.Request) {
-	file, _ := os.Open("optimus-prime.json")
-
-	w.Header().Set("Content-Type", "application/json")
-
-	_, _ = io.Copy(w, file)
+func GetDevs(dev []byte) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(dev)
+	}
 }

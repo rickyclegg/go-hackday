@@ -1,10 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"net/http"
 	"net/http/httptest"
-	"reflect"
 	"testing"
 )
 
@@ -16,8 +14,9 @@ func TestGetDevs(t *testing.T) {
 			t.Fatal(err)
 		}
 
+		want := "data"
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(GetDevs)
+		handler := http.HandlerFunc(GetDevs([]byte(want)))
 
 		handler.ServeHTTP(rr, req)
 
@@ -26,18 +25,9 @@ func TestGetDevs(t *testing.T) {
 				status, http.StatusOK)
 		}
 
-		want := []string{
-			"Rick",
-			"Lisa",
-			"Osh",
-			"Drilon",
-			"Tom",
-		}
-		var got []string
+		got := rr.Body.String()
 
-		json.NewDecoder(rr.Body).Decode(&got)
-
-		if !reflect.DeepEqual(got, want) {
+		if got != want {
 			t.Errorf("handler returned unexpected body: got %v want %v", got, want)
 		}
 	})

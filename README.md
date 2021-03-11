@@ -16,3 +16,9 @@
 * Create a get request
 * Refactor the file names to be more goey `main.go` etc.
 * Lets test this endpoint. `main_test.go` - Went to [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/build-an-application/http-server) and read what was there. This was way to fancy for me.
+* Testing a package from `main` turned out to cause problems you have to run `go test *.go` to run the tests.
+
+## Docker
+* Create a Dockerfile
+* Had issues with docker no recreated my image. Make sure the `CMD` is `./` to my executable.
+* Create `build.sh`
