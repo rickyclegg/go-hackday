@@ -1,3 +1,3 @@
-module go-hackday
+module main
 
 go 1.16

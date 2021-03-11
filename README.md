@@ -3,7 +3,7 @@
 ## Getting started
 * I didn't have go. So went and installed it.
 * Opened InteliJ and started a new project.
-* Followed the getting started and that made me `go mod init go-hackday` not sure really. Sounded like a package manager.
+* Followed the getting started and that made me `go mod init main` not sure really. Sounded like a package manager.
 * Printed something to the console.
 
 ## Data
@@ -14,3 +14,5 @@
 
 ## Web server
 * Create a get request
+* Refactor the file names to be more goey `main.go` etc.
+* Lets test this endpoint. `main_test.go` - Went to [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/build-an-application/http-server) and read what was there. This was way to fancy for me.
