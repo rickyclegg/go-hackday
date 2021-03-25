@@ -41,3 +41,5 @@ Go Hackday [Visit](http://ec2-54-155-236-221.eu-west-1.compute.amazonaws.com/api
 * You need an IGW for public and a NAT for private. The nat must point at the public.
 * You can then create a RT for public and private traffic.
 * You can now create a CodePipeline and CodeBuild.
+* WE GOT IT PUBLISH (however) We don't know if it was a change in permissions or changing the CodeBuild base image to Ubuntu.
+

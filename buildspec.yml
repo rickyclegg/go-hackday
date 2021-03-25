@@ -17,3 +17,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 911610643236.dkr.ecr.eu-west-1.amazonaws.com/gohackday:latest
+
+artifacts:
+  files: imagedefinitions.json
