@@ -4,13 +4,11 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 911610643236.dkr.ecr.eu-west-1.amazonaws.com
-  test:
-    commands:
-      - echo Running tests...
-      - go test *.go
   build:
     commands:
       - echo Build started on `date`
+      - echo Running tests...
+      - go test *.go
       - echo Building the Docker image...
       - docker build -t gohackday:latest .
       - docker tag gohackday:latest 911610643236.dkr.ecr.eu-west-1.amazonaws.com/gohackday:latest
