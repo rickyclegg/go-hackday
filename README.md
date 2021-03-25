@@ -35,3 +35,9 @@
 
 ## Access
 Go Hackday [Visit](http://ec2-54-155-236-221.eu-west-1.compute.amazonaws.com/api/devs)
+
+## CI/CD
+* Creating a VPC and mack sure you have private and public subnets.
+* You need an IGW for public and a NAT for private. The nat must point at the public.
+* You can then create a RT for public and private traffic.
+* You can now create a CodePipeline and CodeBuild.
