@@ -1,6 +1,6 @@
 [
   {
-    "name": "GoHackdayService",
+    "name": "GoHackdayContainer",
     "imageUri": "911610643236.dkr.ecr.eu-west-1.amazonaws.com/gohackday:latest"
   }
 ]
